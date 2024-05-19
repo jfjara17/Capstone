@@ -1,2 +1,2 @@
 # Capstone
-Capstone project for Harvard Certificate
+Capstone project for Data Science Harvard Certificate.

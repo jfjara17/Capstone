@@ -911,7 +911,11 @@ df %>%
 sv_force(shap2, row_id = 1L) / sv_force(shap2, row_id = 5L)
 ```
 
-We can now interpret individual predictions of the model based in the original attributes. We can gain insights about what the model does with every attribute. For example, it seems that hearth failure at the age of 55 is related (accordingly to the model) to lower survival probability than if the same condition appears at the age of 95. This might seems counter-intuitive at first (we could normally expect that older people might have less probability to survive), but the fact that a younger person has a heart failure might mean more, related to the seriousness of the underlying condition.
+## Results
+
+We found a model that reach an out of sample ROC AUC of 0.999, an XGBoost tuned, and we use SHAP Values to open break the opacity of the model.
+
+We can interpret individual predictions of the model based in the original attributes. We can gain insights about what the model does with every attribute. For example, it seems that hearth failure at the age of 55 is related (accordingly to the model) to lower survival probability than if the same condition appears at the age of 95. This might seems counter-intuitive at first (we could normally expect that older people might have less probability to survive), but the fact that a younger person has a heart failure might mean more, related to the seriousness of the underlying condition.
 
 It would be good to check with doctors if some of this insights makes them sense. For example, serum creatinine.
 
@@ -923,7 +927,7 @@ Considering this, it doesn't make sense that higher levels of creatinine serum i
 
 In the case of ejection fraction, "*Ejection fraction (EF) is a measurement, expressed as a percentage, of how much blood the left ventricle pumps out with each contraction. An ejection fraction of 60 percent means that 60 percent of the total amount of blood in the left ventricle is pushed out with each heartbeat. A normal heart's ejection fraction is between 55 and 70 percent.*" (see [References] 8). In this case, it does make sense that the first example has an increase of death probability because he has an ejection fraction of 45, which is lower than the normal level.
 
-## Results
+## Conclusions
 
 We could find an almost perfect model (AUC ROC 0.999 in a test set) with an XGBoost. It is possible to use this model probability to assess differently patients accordingly to survival probability. This is true even if we remove "time" attribute for being suspicious of data leakage.
 
